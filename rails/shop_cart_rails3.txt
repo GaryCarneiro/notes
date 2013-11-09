@@ -62,7 +62,7 @@ depot $ rails generate scaffold  Product title:string description:text image_url
       create      app/views/products/_form.html.erb
       invoke    test_unit
       create      test/controllers/products_controller_test.rb
-      invoke    helper
+      invoke    helperhttp://localhost:3000/products/1
       create      app/helpers/products_helper.rb
       invoke      test_unit
       create        test/helpers/products_helper_test.rb
@@ -76,3 +76,10 @@ depot $ rails generate scaffold  Product title:string description:text image_url
       create      app/assets/stylesheets/products.css.scss
       invoke  scss
       create    app/assets/stylesheets/scaffolds.css.scss
+
+depot $ rails server
+
+depot $ curl 'http://localhost:3000/products/new' # EntryPoint to add new products
+depot $ curl 'http://localhost:3000/products/' #All products
+depot $ curl 'http://localhost:3000/products/1' #Info for 1st product
+depot $ curl 'http://localhost:3000/products/1/edit' # Edit first product
