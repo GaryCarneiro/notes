@@ -1,0 +1,58 @@
+https://wiki.archlinux.org/index.php/RVM
+
+
+curl -L get.rvm.io | bash -s stable
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   184  100   184    0     0    217      0 --:--:-- --:--:-- --:--:--   317
+100 15774  100 15774    0     0   6757      0  0:00:02  0:00:02 --:--:-- 29762
+Downloading RVM from wayneeseguin branch stable
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   124  100   124    0     0    126      0 --:--:-- --:--:-- --:--:--   131
+100 1082k  100 1082k    0     0   185k      0  0:00:05  0:00:05 --:--:--  292k
+
+Installing RVM to /home/carneiro/.rvm/
+    Adding rvm PATH line to /home/carneiro/.bashrc /home/carneiro/.zshrc.
+    Adding rvm loading line to /home/carneiro/.bash_profile /home/carneiro/.zlogin.
+Installation of RVM in /home/carneiro/.rvm/ is almost complete:
+
+➜ To start using RVM you need to run `source /home/carneiro/.rvm/scripts/rvm`
+    in all your open shell windows, in rare cases you need to reopen all shell windows.
+
+# carneiro,
+#
+#   Thank you for using RVM!
+#   I sincerely hope that RVM helps to make your life easier and more enjoyable!!!
+#
+# ~Wayne
+
+# In case of problems:
+#      run and read: rvm notes
+#         read docs: http://rvm.io/
+#        talk to us: http://webchat.freenode.net/?channels=rvm (http://freenode.net/faq.shtml#plusr)
+#   read cheatsheet: http://cheat.errtheblog.com/s/rvm
+#  watch screencast: http://screencasts.org/episodes/how-to-use-rvm
+# open a bug report: https://github.com/wayneeseguin/rvm/issues
+
+  * WARNING: You have '~/.profile' file, you might want to load it,
+    to do that add the following line to '/home/carneiro/.bash_profile':
+
+      source ~/.profile
+
+➜ carneiro@rivergovern-dr  ~  source /home/carneiro/.rvm/scripts/rvm
+➜ carneiro@rivergovern-dr  ~  rvm
+
+  Commands available with 'rvm help':
+
+      alias.md alt.md autolibs.md benchmark.md build.md cleanup.md color.md config-get.md cron.md current.md debug.md disk-usage.md do.md docs.md fetch.md fix-permissions.md gemdir.md gemset.md get.md implode.md info.md install.md list.md migrate.md monitor.md mount.md notes.md osx-ssl-certs.md pkg.md rake.md reinstall.md remove.md repair.md reset.md ruby.md rubygems.md rvmrc.md snapshot.md specs.md srcdir.md tests.md tools.md uninstall.md update.md upgrade-notes.txt upgrade.md use.md user.md wrapper.md
+
+
+  For additional information please visit RVM's documentation website:
+
+      https://rvm.io/
+
+  If you still cannot find what an answer to your question, find
+  'wayneeseguin', 'mpapis', 'richo', 'lemoinem' or 'rys' in #rvm on irc.freenode.net:
+
+      http://webchat.freenode.net/?channels=rvm
