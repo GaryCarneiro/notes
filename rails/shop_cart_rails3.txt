@@ -94,6 +94,11 @@ depot $ vi app/views/products/_form.html.erb
 <%= f.text_area :description, rows: 6 %>
 
 
+
+
+
+
+
 depot $ cat app/views/products/_form.html.erb
 
 <%= form_for(@product) do |f| %>
@@ -183,4 +188,114 @@ Product.create(title: 'Rails Test Prescriptions',
   image_url: 'rtp.jpg',
   price: 34.95)
 
+
+Changing Looks of the application
+
+
+~/Sites/depot/app/assets/stylesheets|⇒  cat >> products.css.scss       
+
+                                                                                                                                                                    
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* START_HIGHLIGHT */
+.products {
+  table {
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .list_image {
+    width:  60px;
+    height: 70px;
+  }
+
+  .list_description {
+    width: 60%;
+
+    dl {
+      margin: 0;
+    }
+
+    dt {
+      color:        #244;
+      font-weight:  bold;
+      font-size:    larger;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  .list_actions {
+    font-size:    x-small;
+    text-align:   right;
+    padding-left: 1em;
+  }
+
+  .list_line_even {
+    background:   #e0f8f8;
+  }
+  .list_line_odd {
+    background:   #f8b0f8;
+  }
+}
+/* END_HIGHLIGHT */
+
+
+~/Sites/depot/app/views/layouts|⇒    cat application.html.erb
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Depot</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+
+<%= yield %>
+
+</body>
+</html>
+
+:~/Sites/depot/app/views/products|⇒  cat index.html.erb   
+<h1>Listing products</h1>
+<table>
+    <% @products.each do |product| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+            <td>
+                <%= image_tag(product.image_url, class: 'list_image') %>
+            </td>
+            <td class="list_description">
+                <dl>
+                    <dt><%= product.title %></dt>
+                    <dd><%= truncate(strip_tags(product.description),
+                        length: 80) %></dd>
+                    </dl>
+                </td>
+                <td class="list_actions">
+                    <%= link_to 'Show', product %><br/>
+                    <%= link_to 'Edit', edit_product_path(product) %><br/>
+                    <%= link_to 'Destroy', product,
+                    confirm: 'Are you sure?',
+                    method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    <br />
+    <%= link_to 'New product', new_product_path %>
+
+
+
+
+:~/Sites/depot/app/assets/images|⇒    wget http://media-origin.pragprog.com/titles/rails4/code/rails30/depot_b/public/images/rails.png
+:~/Sites/depot/app/assets/images|⇒    wget http://media-origin.pragprog.com/titles/rails4/code/rails30/depot_b/public/images/ruby.png
+:~/Sites/depot/app/assets/images|⇒    wget http://media-origin.pragprog.com/titles/rails4/code/rails30/depot_b/public/images/rtp.png
 
