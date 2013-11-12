@@ -137,7 +137,7 @@ $ cat -n products_controller_test.rb
 Successful QA tests
 ============================================================
 :~/Sites/depot/test/controllers$ rake test
-(in /home/carneiro/Sites/depot)
+(in /home/foo/Sites/depot)
 Run options: --seed 2288
 
 # Running tests:
@@ -157,16 +157,16 @@ Expected: 1
   Actual: 2
 
 7 tests, 11 assertions, 1 failures, 0 errors, 0 skips
-carneiro@batcomputer:~/Sites/depot/test/controllers$ vi products_controller_test.rb 
-carneiro@batcomputer:~/Sites/depot/test/controllers$ rake test
-(in /home/carneiro/Sites/depot)
+foo@batcomputer:~/Sites/depot/test/controllers$ vi products_controller_test.rb 
+foo@batcomputer:~/Sites/depot/test/controllers$ rake test
+(in /home/foo/Sites/depot)
 Run options: --seed 40802
 
 # Running tests:
 
 ...DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb___2882650092056952815_33155340 at /home/foo/Sites/depot/app/views/produ
 cts/index.html.erb:18)
-DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb___2882650092056952815_33155340 at /home/carneiro/Sites/depot/app/views/products
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb___2882650092056952815_33155340 at /home/foo/Sites/depot/app/views/products
 /index.html.erb:18)
 ....
 
