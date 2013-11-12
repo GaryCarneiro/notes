@@ -34,3 +34,102 @@ This however gave an error with following message
 The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?
 
 FIX: use \z for end of line expression
+
+
+============================================================
+Running Tests for our application
+============================================================
+Next section implements QA tests
+This runs from Sites/depot/test/controllers/products_controller_test.rb
+
+:~/Sites/depot$ rake test
+#Output
+
+Run options: --seed 23474
+
+
+# Running tests:
+
+F..DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb__1995880222803020345_41144880 at /home/foo/Sites/depot/app/views/produc
+ts/index.html.erb:18)
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb__1995880222803020345_41144880 at /home/foo/Sites/depot/app/views/products/
+index.html.erb:18)
+...F
+
+Finished tests in 0.944088s, 7.4146 tests/s, 10.5922 assertions/s.
+
+  1) Failure:
+ProductsControllerTest#test_should_create_product [/home/foo/Sites/depot/test/controllers/products_controller_test.rb:20]:
+"Product.count" didn't change by 1.
+Expected: 3
+  Actual: 2
+
+  2) Failure:
+ProductsControllerTest#test_should_update_product [/home/foo/Sites/depot/test/controllers/products_controller_test.rb:39]:
+Expected response to be a <redirect>, but was <200>
+
+7 tests, 10 assertions, 2 failures, 0 errors, 0 skips
+
+============================================================
+We saw failure because we modified the Model of the App.
+We added lines 5-11,modified 27,44 in the controller test code at /home/foo/Sites/depot/test/controllers/products_controller_test.rb
+
+$ cat -n products_controller_test.rb
+#Output
+
+     1  require 'test_helper'
+     2
+     3  class ProductsControllerTest < ActionController::TestCase
+     4    setup do
+     5      @product = products(:one)
+     6      @update = {
+     7          title:          'Loren Ipsum',
+     8          description:    'Wibbles are fun!',
+     9          image_url:      'lorem.jpg',
+    10          price:          19.95
+    11      }
+    12    end
+    13
+    14    test "should get index" do
+    15      get :index
+    16      assert_response :success
+    17      assert_not_nil assigns(:products)
+    18    end
+    19
+    20    test "should get new" do
+    21      get :new
+    22      assert_response :success
+    23    end
+    24
+    25    test "should create product" do
+    26      assert_difference('Product.count') do
+    27        post :create, product: @update
+    28      end
+    29
+    30      assert_redirected_to product_path(assigns(:product))
+    31    end
+    32
+    33    test "should show product" do
+    34      get :show, id: @product
+    35      assert_response :success
+    36    end
+    37
+    38    test "should get edit" do
+    39      get :edit, id: @product
+    40      assert_response :success
+    41    end
+    42
+    43    test "should update product" do
+    44      patch :update, id: @product, product: @update
+    45      assert_redirected_to product_path(assigns(:product))
+    46    end
+    47
+    48    test "should destroy product" do
+    49      assert_difference('Product.count', -1) do
+    50        delete :destroy, id: @product
+    51      end
+    52
+    53      assert_redirected_to products_path
+    54    end
+    55  end
+
