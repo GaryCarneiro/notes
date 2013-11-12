@@ -133,3 +133,44 @@ $ cat -n products_controller_test.rb
     54    end
     55  end
 
+============================================================
+Successful QA tests
+============================================================
+:~/Sites/depot/test/controllers$ rake test
+(in /home/carneiro/Sites/depot)
+Run options: --seed 2288
+
+# Running tests:
+
+.F.DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb__2022565504625029929_38226440 at /home/foo/Sites/depot/app/views/produc
+ts/index.html.erb:18)
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb__2022565504625029929_38226440 at /home/foo/Sites/depot/app/views/products/
+index.html.erb:18)
+....
+
+Finished tests in 0.342933s, 20.4122 tests/s, 32.0763 assertions/s.
+
+  1) Failure:
+ProductsControllerTest#test_should_destroy_product [/home/foo/Sites/depot/test/controllers/products_controller_test.rb:49]:
+"Product.count" didn't change by -1.
+Expected: 1
+  Actual: 2
+
+7 tests, 11 assertions, 1 failures, 0 errors, 0 skips
+carneiro@batcomputer:~/Sites/depot/test/controllers$ vi products_controller_test.rb 
+carneiro@batcomputer:~/Sites/depot/test/controllers$ rake test
+(in /home/carneiro/Sites/depot)
+Run options: --seed 40802
+
+# Running tests:
+
+...DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb___2882650092056952815_33155340 at /home/foo/Sites/depot/app/views/produ
+cts/index.html.erb:18)
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from block in _app_views_products_index_html_erb___2882650092056952815_33155340 at /home/carneiro/Sites/depot/app/views/products
+/index.html.erb:18)
+....
+
+Finished tests in 0.279529s, 25.0421 tests/s, 46.5068 assertions/s.
+
+7 tests, 13 assertions, 0 failures, 0 errors, 0 skips
+
