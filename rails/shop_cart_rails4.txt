@@ -1,0 +1,14 @@
+Validation:
+
+The Products controller accepts blank values. This is because there is no validation at Model.
+
+
+Let’s start by validating that the text fields all contain something before a row is written to the database
+
+:~/Sites/depot/app/models$ cat product.rb 
+#Output
+class Product < ActiveRecord::Base
+    validates   :title, :description, :image_url, presence: true
+end
+
+There is a flaw above. Price can be blank or invalid like 0.00.
