@@ -11,4 +11,10 @@ class Product < ActiveRecord::Base
     validates   :title, :description, :image_url, presence: true
 end
 
-There is a flaw above. Price can be blank or invalid like 0.00.
+There is a flaw above. Price can be blank or invalid like 0.00. Adding one more validates statement.
+
+validates   :price, numericality: { greater_than_or_equal_to: 0.01} 
+
+
+The title should be unique (primary DB key ?) 
+validates   :title, uniqueness: true
