@@ -1,3 +1,60 @@
 ============================================================
 Iteration B2: Unit Testing of Models
 ============================================================
+We are doing a simple test case for Rail Model 
+(Earlier notes were for controller)
+
+Note: assert is a function from Test::Unit::Assertions. 
+It just tests if the given condition is true or false.
+
+:~/Sites/depot/test/models|master⚡ ⇒      cat product_test.rb
+#Output
+require 'test_helper'
+
+class ProductTest < ActiveSupport::TestCase
+    test "product attributes must not be empty" do
+    product = Product.new
+    assert product.invalid?
+    assert product.errors[:title].any?
+    assert product.errors[:description].any?
+    assert product.errors[:price].any?
+    assert product.errors[:image_url].any?
+    end
+end
+
+Observations:
+In Rails 3.X the directory holding the model test cases was <app>/test/unit . In 4.X  it is <app>/test/models.
+
+
+============================================================
+Running Model Tests
+============================================================
+:~/Sites/depot/test/models|master⚡ ⇒  rake test:units
+#Output                                    
+(in /home/foo/Sites/depot)
+Run options: --seed 56779
+
+# Running tests:
+
+.
+
+Finished tests in 0.177980s, 5.6186 tests/s, 28.0930 assertions/s.
+
+1 tests, 5 assertions, 0 failures, 0 errors, 0 skips
+
+============================================================
+The above command works for Rails 4 as well (compatible) but the real command should be ..
+============================================================
+:~/Sites/depot/test/models|master⚡ ⇒      rake test:models
+#Output
+(in /home/foo/Sites/depot)
+Run options: --seed 43157
+
+# Running tests:
+
+.
+
+Finished tests in 0.176080s, 5.6792 tests/s, 28.3962 assertions/s.
+
+1 tests, 5 assertions, 0 failures, 0 errors, 0 skips
+
