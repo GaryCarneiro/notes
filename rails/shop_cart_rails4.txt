@@ -173,4 +173,8 @@ DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rail
 Finished tests in 0.279529s, 25.0421 tests/s, 46.5068 assertions/s.
 
 7 tests, 13 assertions, 0 failures, 0 errors, 0 skips
+============================================================
+
+
+
 
