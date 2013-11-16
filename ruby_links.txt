@@ -1,0 +1,1 @@
+Rake Intro: http://jasonseifer.com/2010/04/06/rake-tutorial
