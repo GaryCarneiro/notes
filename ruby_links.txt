@@ -1,1 +1,2 @@
 Rake Intro: http://jasonseifer.com/2010/04/06/rake-tutorial
+ADS / LDAP Authentication http://corrupt.net/2010/07/05/LDAP-Authentication-With-Devise/
